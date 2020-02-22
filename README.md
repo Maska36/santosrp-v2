@@ -10,4 +10,6 @@ Btw, c'est la source du test server donc ya des trucs en dev etc que j'ai pas fi
 
 J'upload la db plus tard
 
+Aussi, SantosRP m'appartient toujours donc ne réutilisez pas le nom et le design ou j'vous bz sale
+
 Aucun support pour le serv venez pas me DM
