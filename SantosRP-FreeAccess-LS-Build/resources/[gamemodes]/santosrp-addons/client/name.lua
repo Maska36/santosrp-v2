@@ -1,0 +1,12 @@
+Citizen.CreateThread(function()
+    AddTextEntry("PM_PANE_LEAVE", "~y~Quitter SantosRP")
+    AddTextEntry("PM_PANE_QUIT", "~r~Quitter FiveM")
+    AddTextEntry("PM_SCR_MAP", "~b~Carte de Santos-City")
+    AddTextEntry("PM_SCR_GAM", "~y~Prendre l'avion")
+    AddTextEntry("PM_SCR_INF", "~b~Logs")
+    AddTextEntry("PM_SCR_SET", "~p~Configuration")
+    AddTextEntry("PM_SCR_STA", "~f~Statistiques")
+    AddTextEntry("PM_SCR_RPL", "~g~Éditeur ∑")
+
+    AddTextEntry("FE_THDR_GTAO", "["..GetPlayerServerId(PlayerId()).."] "..GetPlayerName(PlayerId()).." - ~o~SantosRP | discord.gg/santosroleplay")
+end)

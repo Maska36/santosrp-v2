@@ -1,0 +1,73 @@
+ESX = nil
+local ItemLabels = {}
+
+TriggerEvent('esx:getSO', function(obj) ESX = obj end)
+
+RegisterServerEvent('esx_pharmacy:buyItem')
+AddEventHandler('esx_pharmacy:buyItem', function(itemName, price)
+
+  local _source = source
+  local xPlayer = ESX.GetPlayerFromId(_source)
+
+  if xPlayer.get('money') >= price then
+    xPlayer.removeMoney(price)
+    xPlayer.addInventoryItem(itemName, 1)
+
+    TriggerEvent('esx_addonaccount:getSharedAccount', 'society_ambulance', function(account)
+      account.addMoney(price)
+    end)
+  else
+    TriggerClientEvent('esx:showNotification', _source, _U('not_enough_money'))
+  end
+
+end)
+
+RegisterServerEvent('esx_pharmacy:removeItem')
+AddEventHandler('esx_pharmacy:removeItem', function(itemName)
+  local _source = source
+  local xPlayer = ESX.GetPlayerFromId(_source)
+
+  xPlayer.removeInventoryItem(itemName, 1)
+end)
+
+
+-- ====================================================================================================================
+-- Usable item
+-- ====================================================================================================================
+ESX.RegisterUsableItem('firstaidkit', function(source)
+  local xPlayers     = ESX.GetPlayers()
+  local hasAmbulance = false
+
+  for i = 1, #xPlayers, 1 do
+    local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
+    if xPlayer.job.name == 'ambulance' then
+      hasAmbulance = true
+      break
+    end
+  end
+
+  if not hasAmbulance then
+    TriggerClientEvent('esx_pharmacy:useKit', source, 'firstaidkit', 4)
+  else
+    TriggerClientEvent('esx:showNotification', source, _U('has_ambulance'))  
+  end
+end)
+
+ESX.RegisterUsableItem('defibrillateur', function(source)
+  local xPlayers     = ESX.GetPlayers()
+  local hasAmbulance = false
+
+  for i = 1, #xPlayers, 1 do
+    local xPlayer = ESX.GetPlayerFromId(xPlayers[i])
+    if xPlayer.job.name == 'ambulance' then
+      hasAmbulance = true
+      break
+    end
+  end
+
+  if not hasAmbulance then
+    TriggerClientEvent('esx_pharmacy:useDefibrillateur', source, 'defibrillateur')
+  else
+    TriggerClientEvent('esx:showNotification', source, _U('has_ambulance'))  
+  end
+end)

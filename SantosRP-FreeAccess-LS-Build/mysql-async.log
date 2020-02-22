@@ -1,0 +1,3 @@
+[32m[mysql-async][0m Database server connection established.
+[ERROR] [MySQL] [esx_multichars] An error happens on MySQL for query "UPDATE `datastore_data` SET `owner` = 'Char1:110000135a16388' WHERE `owner` = 'steam:110000135a16388'": ER_DUP_ENTRY: Duplicate entry 'user_ears-Char1:110000135a16388' for key 'index_datastore_data_name_owner'
+[ERROR] [MySQL] [esx_multichars] An error happens on MySQL for query "UPDATE `datastore_data` SET `owner` = 'steam:110000135a16388' WHERE `owner` = 'Char1:110000135a16388'": ER_DUP_ENTRY: Duplicate entry 'property-steam:110000135a16388' for key 'index_datastore_data_name_owner'

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+</head>
+
+<body>
+    <script src="js/config.js"></script>
+    <script src="locales/en.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/inventory.js"></script>
+    <script>
+        $(function () {
+            $("#dialog").dialog({
+                autoOpen: false,
+                clickOutside: true
+            });
+        });
+
+        function InvFunc() {
+            var elems = document.getElementsByClassName('inventory');
+            for (var i=0;i<elems.length;i+=1){
+                elems[i].style.display = 'block';
+            }
+            var ezfda = document.getElementsByClassName('competences');
+            for (var i=0;i<ezfda.length;i+=1){
+                ezfda[i].style.display = 'none';
+            }
+        }
+
+        function CompFunc() {
+            var comp = document.getElementsByClassName('competences');
+            for (var i=0;i<comp.length;i+=1){
+                comp[i].style.display = 'block';
+            }
+            var ccddc = document.getElementsByClassName('inventory');
+            for (var i=0;i<ccddc.length;i+=1){
+                ccddc[i].style.display = 'none';
+            }
+        }
+        $(document).ready(function(){
+            $("#search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#playerInventory .slot").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+    <div class="ui">
+        <div class="inventory">
+            <div id="playerInventory">
+            </div>
+            <div id="controls">
+                <img src="img/logo.png" alt="logo" style="text-align: center!important;vertical-align: middle;color: white;height: 100px;margin-left: 10px;margin-top: 20px;border-style: none;">
+                <div class="navbar" style="color: #ff7a00;">
+                    <a href="#inventaire" onclick="InvFunc()"><i class="fa fa-archive" style="color: #ff7a00;"></i> Inventaire</a> |
+                    <a href="#competences" onclick="CompFunc()"><i class="fa fa-area-chart" style="color: #ff7a00;"></i> Compétences</a>
+                </div>
+                <div class="controls-div">
+                    <input type="text" class="control" id="search" placeholder="🔍 RECHERCHER">
+                    <input type="number" class="control" id="count" value="1">
+                    <div class="control ui-droppable" id="use" style="cursor: pointer;">Utiliser</div>
+                    <div class="control ui-droppable" id="give" style="cursor: pointer;">Donner</div>
+                    <!-- <div class="control ui-droppable" id="drop" style="cursor: pointer;">Jeter</div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="competences">     
+            <div class="dialog">
+                <div class="header">
+                    <h1 style="font-family: 'Staatliches', sans-serif;font-weight: 900;">Compétences</h1>
+                </div>
+                    <div class="skill">
+                        <span>Stamina: <span id="staminaInfo">10%</span><p></p>
+                        <div id="staminaProgress">
+                            <div id="staminaBar"></div>
+                        </div>
+                    </span></div>
+                    <div class="skill">
+                        <span>Force: <span id="strengthInfo">10%</span><p></p>
+                        <div id="strengthProgress">
+                            <div id="strengthBar"></div>
+                        </div>
+                    </span></div>
+                    <div class="skill">
+                        <span>Conduite: <span id="drivingInfo">10%</span><p></p>
+                        <div id="drivingProgress">
+                            <div id="drivingBar"></div>
+                        </div>
+                    </span></div>
+                    
+                    <div class="skill">
+                        <span>Drogue: <span id="drugsInfo">10%</span><p></p>
+                        <div id="drugsProgress">
+                            <div id="drugsBar"></div>
+                        </div>
+                        </span></div>
+                    </div>
+            <div id="controlss">
+                <img src="img/logo.png" alt="logo" style="text-align: center!important;vertical-align: middle;color: white;height: 100px;margin-left: 10px;margin-top: 20px;border-style: none;">
+                    <div class="navbar" style="color: #ff7a00;">
+						<a href="#inventaire" onclick="InvFunc()"><i class="fa fa-archive" style="color: #ff7a00;"></i> Inventaire</a> |
+						<a href="#competences" onclick="CompFunc()"><i class="fa fa-area-chart" style="color: #ff7a00;"></i> Compétences</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dialog">
+        <div id="nearPlayers">
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        $("#use").html(invLocale.useItem);
+        $("#give").html(invLocale.giveItem);
+        $("#drop").html(invLocale.dropItem);
+        // $("#noSecondInventoryMessage").html(invLocale.secondInventoryNotAvailable);
+    });
+</script>
+
+</html>

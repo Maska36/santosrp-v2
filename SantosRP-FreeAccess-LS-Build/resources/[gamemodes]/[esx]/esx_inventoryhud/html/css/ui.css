@@ -1,0 +1,471 @@
+@import url("https://fonts.googleapis.com/css?family=Staatliches&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+}
+
+#controlss {
+    width: 300px;
+    height: 600px;
+    float: left;
+    position: relative;
+    background-color: #ffffff;
+    left: 0;
+    top: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-top: 0px;
+    margin-left: 1074px;
+}
+
+#controls {
+    width: 300px;
+    height: 600px;
+    float: left;
+    position: relative;
+    background-color: #ffffff;
+    left: 0;
+    top: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin-top: -600px;
+    margin-left: 1074px;
+}
+
+.navbar {
+    width: 100%;
+    margin-left: 0.2px;
+    margin-top: 25px;
+}
+
+.navbar a {
+    padding: 10px;
+    color: #ff7a00;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.navbar a:hover {
+    background-color: #b55700;
+    color: white;
+}
+
+.active {
+    background-color: #ff7a00;
+}
+
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+    }
+}
+
+.ui {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0,0.10);
+    display: none;
+    z-index: 0;
+}
+
+.inventory {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 3px;
+    transform: translate(-50%, -50%);
+    /* height: 600px; */
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+.competences {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 3px;
+    transform: translate(-50%, -50%);
+    height: 600px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .4);
+    background-color: rgba(255, 122, 0, 0.5);
+}
+
+#playerInventory {
+    width: 1074px;
+    height: 600px;
+    float: left;
+    /* margin-top: 34px; */
+    overflow-y: scroll;
+}
+
+#search {
+    border: none;
+    outline: none;
+    background-color: #ff7a00;
+    border-bottom: 2px double white;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+#count {
+    border: none;
+    outline: none;
+    background-color: #ff7a00;
+    border-bottom: 2px double white;
+    color: white;
+    font-size: 18px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=text] {
+    -moz-appearance: textfield;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.slot {
+    float: left;
+    width: 117px;
+    height: 117px;
+    background-color: #ffffff;
+    position: relative;
+    margin: 6px;
+    padding-left: 4px;
+}
+
+.slot:hover {
+    opacity: 0.6;
+}
+
+.item,
+.item-other {
+    width: 117px;
+    height: 117px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.item-name {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    /* padding-top: 2px; */
+    /* padding-bottom: 5px; */
+	color: rgb(255, 122, 0);
+    width: 117px;
+    min-height: 20px;
+    z-index: 500;
+    font-size: 10px;
+    background-color: #1b191700;
+}
+
+.ui-draggable-dragging .item-name,
+.ui-draggable-dragging .item-count {
+    display: none;
+}
+
+.item-count {
+    position: absolute;
+    top: 0;
+    /* text-align: right; */
+    width: 114px;
+    height: 20px;
+    z-index: 500;
+    font-size: 12px;
+	color: rgb(255, 122, 0);
+}
+
+.ammoIcon {
+    width: 10px;
+    height: 10px;
+}
+
+.info-div {
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 1);
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+}
+
+.controls-div {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+}
+
+.control {
+    width: 170px;
+    height: 40px;
+    background-color: rgb(255, 122, 0);
+    color: white;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    line-height: 40px;
+}
+
+.control:hover {
+    background-color: #d46500;
+}
+
+.hhhh {
+    background-color: #e8e8e8;
+}
+
+.control:active {
+    background-color: #b55600;
+}
+
+.control.disabled {
+    background-color: #ededed;
+}
+
+.hoverControl {
+    background-color: #ededed;
+}
+
+.item-name-bg {
+    width: 100%;
+    width: 117px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+}
+
+#controlss::-webkit-scrollbar-track,
+#playerInventory::-webkit-scrollbar-track,
+#otherInventory::-webkit-scrollbar-track {
+    background-color: none;
+    border: none;
+}
+
+#controlss::-webkit-scrollbar,
+#playerInventory::-webkit-scrollbar,
+#otherInventory::-webkit-scrollbar {
+    width: 10px;
+}
+
+#controlss::-webkit-scrollbar-thumb,
+#playerInventory::-webkit-scrollbar-thumb,
+#otherInventory::-webkit-scrollbar-thumb {
+    background-color: rgb(195, 195, 195);
+}
+
+.nearbyPlayerButton {
+    width: 100%;
+    margin-top: 5px;
+    display: block;
+    text-decoration: none;
+    padding: 2px;
+    color: black;
+    background-color: #ff7a00;
+    text-shadow: none;
+    font-size: 14px !important;
+    outline: none;
+    text-transform: none;
+    text-align: center;
+    line-height: 30px;
+    border: none;
+}
+
+.nearbyPlayerButton:hover {
+    background-color: #ff7a00;
+}
+
+#noSecondInventoryMessage {
+    width: 615px;
+    height: 580px;
+    line-height: 580px;
+    text-align: center;
+}
+
+@media (max-width: 1500px) {
+    .inventory {
+        width: 1300px;
+    }
+
+    #playerInventory {
+        width: 550px;
+    }
+
+    #controls {
+        width: 200px;
+    }
+
+    #otherInventory {
+        width: 550px;
+    }
+
+    #noSecondInventoryMessage {
+        width: 540px;
+    }
+}
+
+.info {
+    background-color:rgba(255, 255, 255, 0.863);
+    color: white;
+    font-size:14px;
+    text-align: center;
+    padding:5px;
+    margin-top:5px;
+    border-radius:10px;
+}
+
+.header {
+    background-size:cover;
+    color: white;
+    text-align: center;
+    height:90px;
+    padding-top:10px;
+}
+
+
+.dialog {
+    position: absolute;
+    left: 40%;
+    top: 30px;
+    transform: translateX(-50%);
+    padding: 10px;
+    border-radius:10px;
+}
+
+.skill {
+    margin-top: 80px;
+    margin-bottom:5px;
+    float:left;
+    margin-left: 10px;
+    width: calc(50% - 10px);
+}
+
+#staminaProgress {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+span {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+#staminaBar {
+    width: 0%;
+    height: 20px;
+    background-color: rgb(47, 118, 211);
+    text-align: center;
+    color: white; 
+}
+
+#strengthProgress {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#strengthBar {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50;
+    text-align: center;
+    color: white;
+}
+
+#drivingProgress {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#drivingBar {
+    width: 0%;
+    height: 20px;
+    background-color: rgb(187, 63, 47);
+    text-align: center;
+    color: white; 
+}
+
+#shootingProgress {
+    width: 100%;
+    background-color: rgba(146, 145, 145, 0.27);
+}
+
+#shootingBar {
+    width: 0%;
+    height: 20px;
+    background-color: rgb(201, 183, 26);
+    text-align: center
+    color: white; 
+}
+
+#fishingProgress {
+    width: 100%;
+    background-color: rgba(146, 145, 145, 0.27);
+}
+
+#fishingBar {
+    width: 0%;
+    height: 20px;
+    background-color: rgb(26, 166, 201);
+    text-align: center;
+    color: white; 
+}
+
+#drugsProgress {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#drugsBar {
+    width: 0%;
+    height: 20px;
+    background-color: rgb(125, 19, 134);
+    text-align: center;
+    color: white; 
+}
+
+@media (max-width: 1300px) {
+    .inventory {
+        width: 1000px;
+    }
+
+    #playerInventory {
+        width: 425px;
+    }
+
+    #controls {
+        width: 150px;
+    }
+
+    #otherInventory {
+        width: 425px;
+    }
+
+    #noSecondInventoryMessage {
+        width: 420px;
+    }
+}

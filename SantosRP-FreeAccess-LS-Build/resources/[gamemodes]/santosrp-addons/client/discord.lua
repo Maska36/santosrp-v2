@@ -1,0 +1,8 @@
+Citizen.CreateThread(function()
+	SetRichPresence("["..GetPlayerServerId(PlayerId()).."] "..GetPlayerName(PlayerId()))
+	SetDiscordAppId("663093554712805382")
+	SetDiscordRichPresenceAsset("logo_final_moche")
+	SetDiscordRichPresenceAssetText("SantosRP")
+	SetDiscordRichPresenceAssetSmall("disc")
+	SetDiscordRichPresenceAssetSmallText("discord.gg/santosroleplay")
+end)

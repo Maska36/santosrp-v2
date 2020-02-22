@@ -1,0 +1,10 @@
+Version 13 30
+{
+	Image hw1_3_ja_rn_htile_combi_n.dds
+	Type Regular
+	PixelFormat DXT1
+	Levels 7
+	Usage NORMAL
+	UsageFlags -
+	ExtraFlags 0
+}
