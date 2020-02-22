@@ -6,6 +6,8 @@ En bref j'avais confié la machine à un Lead Staff pour qu'ils puissent reboot 
 
 Le code est un peu cracra par moment je devais encore retravailler et opti des trucs mais vazy j'avais la flemme du coup enjoy le serv :)
 
+Btw, c'est la source du test server donc ya des trucs en dev etc que j'ai pas finis mais flemme tbh le serv est clos.
+
 J'upload la db plus tard
 
 Aucun support pour le serv venez pas me DM
